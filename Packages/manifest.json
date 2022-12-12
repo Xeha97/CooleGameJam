@@ -48,7 +48,7 @@
   "scopedRegistries": [
     {
       "name": "OpenUMP",
-      "url": "https://package.openupm.com/",
+      "url": "https://package.openupm.com",
       "scopes": [
         "com.inkle​​​​​​​"
       ]

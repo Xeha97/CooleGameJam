@@ -41,9 +41,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Interactions\Collectable.cs" />
+     <Compile Include="Assets\Scripts\Interactions\GameState.cs" />
      <Compile Include="Assets\Scripts\Interactions\Interaction.cs" />
      <Compile Include="Assets\Scripts\Interactions\Interactable.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Input\PlayerInput.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.8f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>

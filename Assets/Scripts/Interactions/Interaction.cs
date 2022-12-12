@@ -1,22 +1,14 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-
 using UnityEngine;
+using System.Linq;
 using UnityEngine.Events;
 
 public class Interaction : MonoBehaviour
 {
-    #region Inspector
-
     [SerializeField] private UnityEvent onInteracted;
-
-    [Tooltip("Next Interaction to be activated once this Interaction was executed." +
-             " It will be executed the next time the player interacts with this Interactable.")]
     [SerializeField] private Interaction nextInteraction;
-
-    #endregion
-
-    #region Unity Event Functions
 
     private void Awake()
     {
@@ -29,13 +21,14 @@ public class Interaction : MonoBehaviour
 
         foreach (Interaction interaction in interactions)
         {
-            if (interaction == this) { continue; }
+            if (interaction == this)
+            {
+                continue;
+            }
             
             interaction.gameObject.SetActive(false);
         }
     }
-
-    #endregion
 
     public void Execute()
     {

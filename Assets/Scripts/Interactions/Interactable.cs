@@ -1,25 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
-
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class Interactable : MonoBehaviour
 {
-    #region Inspector
-    
-    [Tooltip("Invoked when the player interacts with the Interactable.")]
     [SerializeField] private UnityEvent onInteracted;
+    [SerializeField] private UnityEvent Selected;
+    [SerializeField] private UnityEvent Deselected;
 
-    [Tooltip("Invoked when the player selects this Interactable, and they are able to interact with it.")]
-    [SerializeField] private UnityEvent onSelected;
-    
-    [Tooltip("Invoked when the player deselects this Interactable, and they stop being able to interact with it.")]
-    [SerializeField] private UnityEvent onDeselected;
-    
-    #endregion
-    
-    #region Unity Event Functions
 
     private void Start()
     {
@@ -31,8 +22,6 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    #endregion
-
     public void Interact()
     {
         Interaction interaction = FindActiveInteraction();
@@ -41,23 +30,20 @@ public class Interactable : MonoBehaviour
         {
             interaction.Execute();
         }
-        
-        Debug.Log("Interact");
         onInteracted.Invoke();
+        Debug.Log("Interacted");
     }
 
     public void Select()
     {
+        Selected.Invoke();
         Debug.Log("Select");
-
-        onSelected.Invoke();
     }
-
+    
     public void Deselect()
     {
+        Deselected.Invoke();
         Debug.Log("Deselect");
-
-        onDeselected.Invoke();
     }
 
     private Interaction FindActiveInteraction()
